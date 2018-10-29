@@ -1,0 +1,64 @@
+
+This job is to create a single page using HTML and pure embedded Javascript. The page will do some work in javascript and then create a CSV that the user can save.
+
+UI:
+
+When the page is loaded, the user sees a form with 2 fields and 1 button. 
+
+The first field is a number entry field that allows up to 5 digits (1-99999). 
+
+The second field is a file input. The user selects a file from their local machine using this field.
+
+The button is labeled "Generate Accounts". When the button is pressed, work is done in Javascript to create a CSV.
+
+CSV Creation:
+
+The first row of the CSV should always be the same 2 column headers: address and privateKey.
+
+Each of the following rows will be one account created with web3.eth.accounts.create.
+
+(link removed)
+
+For the first account, the page should read the first 256 characters of the file input. Then, it should feed those characters as the entropy into web3.eth.accounts.create([entropy]);. It should take the resulting address and privateKey and add them to the CSV.
+
+It should do this again using the second 256 characters of the file input to create the second account in the CSV. It should keep doing this until it has created the number of accounts specified by the first text field.
+
+When the CSV is complete, there should be a new label that appears on the screen that says "CSV ready" and a button that says "Save CSV". When the button is pressed, the user can save the CSV on their local machine.
+
+Errors:
+
+If the text entry field contains anything other than a whole number between 1 and 99,999 there should be an error and no CSV should be created.
+
+If the file input runs out of entropy data before the appropriate number of accounts are created, there should be an error and no CSV should be created.
+
+Notes:
+
+This page will be used on a computer with no internet access. Web3.js should be saved locally:
+
+(link removed)
+
+If the same file input is used two times in a row, it should output the same CSV (because the entropy is the same).
+
+All the javascript should be embedded in the page and formatted for easy readability.
+
+Any the CSS should be embedded in the page. There does not need to be much style at all, but the page should be simple to understand and use
+
+--------------------------------------------------------------------------------------
+
+Hi, 
+I'm a full-stack developer with 5+ years of experience in javascript and its frameworks.
+
+I have carefully read your job description and fully understood it. I can start to build this webpage right away once after you hire me.
+
+To parse csv file, there're JS libraries we can use like jQuery-CSV and I can write own code as well.
+File processing to generate addresses and private keys looks straight-forward to me. Same for the file save.
+
+If you wanna see my previous work, here're some:
+www.corva.ai
+www.wantable.com
+
+I can finish this project as soon as possible within a day and I'd appreciate if you hire me.
+I look forward to hearing from you soon.
+
+Thanks,
+Gabe

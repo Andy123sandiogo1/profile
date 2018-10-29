@@ -1,0 +1,65 @@
+-------------------------------------------------------
+***********************Questions***********************
+-------------------------------------------------------
+
+--------------------------------- CSS -------------------------------
+
+- What's your preferred methodology and/or framework for writing/organizing your CSS? Why?
+
+- Describe how accessibility and the concept of progressive enhancement work together and how they fit into your work?
+- What are your thoughts on whether all pages should look and behave the same in every browser?
+- Do you rely heavily on jQuery and/or Bootstrap for front-end development? Why or why not?
+- Describe your experience and level of comfort working with front-end code in Rails with views and ERB.
+	I have an excellent experience in web crawling, scraping using phantomjs, slimerjs and casperjs, and I also have developing website/app using.
+------------------------------- NORMAL QEUSTION -------------------------------------
+- Do you have any questions about the job description?
+ I have one question. which of skills do you need?
+- Why do you think you are a good fit for this particular project?
+ I'm in love of RoR and favor it among all other frontend MVC frameworks
+- How many hours can you dedicate to this project per week?
+I can work for 30+ hours per week.
+
+- Which of the required job skills do you feel you are strongest at?
+I have an extensive experience building and interacting with RESTful API's, data modeling and project management in Laravel and React.
+I prefer the Laravel 5.1+.
+
+- Why did you apply to this particular job?
+Because I am a programer to listen to all my client's requirement and provide elegant but manageable solutions that are designed for your unique situation.
+
+- Why do you think you are a good fit for this particular project?
+Because I am a programer to listen to all my client's requirement and provide elegant but manageable solutions that are designed for your unique situation,
+I think I am a good fit for this particular job.
+
+---------------------------------***REACT***-----------------------------------------
+- Please describe your experience with react development
+- Please describe your experience with Material Design
+- How many hours are you available to work on this project?
+- Can you verify your eligibility to work for hire in the United States?
+
+- Are you available to start immediately(tomorrow)?
+Sure. I'm available tomorrow for interview and can start immediately.
+
+- Are you available to have 2 interviews tomorrow(one with me, one with client)?
+Sure, let's coordinate the time if possible.
+
+- What past project or job have you had that is most like this one and why?(Github & Link)
+www.corva.ai - we used react.js, immutable, webpack, typescript
+About code sharing, sorry I just can't share it publicly
+-------------------------------------------------------------------------------------
+
+------------------------------ Ruby on Rails --------------------------------------------
+
+- Do you have any questions about this project for me?
+I have no specific questions as you posted detailed description. I'm clear now.
+- If selected, when could you start on this project?
+I'm able to start in this week once we agreed to work on
+- Can you share 2-3 code samples?
+Sure, I can walk you through the source code of previous projects in github.
+
+- Are you a full time freelancer with availability during the day to hop on status calls?
+I'd be available any time during day or night. except weekends ;)
+
+- Do you have any javascript pages that you have created in the past that you want to share with me?
+ Here, I'm sending JS snippet to parse CSV :
+function CSVToArray( strData, strDelimiter ){
+strDelimiter = (strDelimiter || ",");

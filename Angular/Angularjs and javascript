@@ -1,0 +1,35 @@
+Angularjs and javascript
+---------------------
+Hi,
+
+I just saw you just posted a single line for job description but it's enough for me because I can excel the others in terms of skill set especially javascript and its MVC frameworks including angularJS
+
+I am an expert in core javascript, various front-end MVC (Angular, React), back-end frameworks(RoR, Larave, Node.js) and SQL(MySql, Mariodb, MongoDB).
+
+Can we possibly meet on upwork messenger and discuss further details ? 
+
+Thanks, 
+Gabe
+
+1. Describe your experience with Angular in 3-4 sentences?
+	AngularJS is architecture on 3 components such as the template(view), the scope(model) and controller.
+	In angular, the most important is a decorator, and decorator is the core concept when developing an angular framework with version 2+,and there are 4 different types of decorators such as class decorators, property decorators, method decorators and parameter decorators. And then, writing CLI command, we can generate a components in Angular.
+	We also used the elements which present in the component directory structure - module.ts, component.ts and component.html as well as ngFor and ngIf directives. ngRoute module is used when you want to navigate through different pages of application. 
+2. Tell about advantages of Angular vs other frameworks if you had a chance to work with them.
+	- Component-based architecture
+		Angular consist of a lots of components.
+	- RxJS
+		You can leverage RxJS with other frameworks that function with front-end (React.JS) or back-end operations (Node.JS), but in Angular RxJS is a necessity
+	- Google Long-Term Support
+	- Two-way data binding
+3. Showcase best max 3 projects built with Angular.
+	- www.corva.ai
+	- www.wantable.com
+
+	-https://cotizar.siempreseguros.com/
+	-https://siempre-seguros-developers.appspot.com/admin
+4. Do you write tests?
+	Yes, I do.
+
+5. When you're ready to start?
+	I am ready to start asap.

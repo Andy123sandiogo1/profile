@@ -1,0 +1,60 @@
+Ruby on Rails
+
+- Do you have any questions about this project for me?
+I have no specific questions as you posted detailed description. I'm clear now.
+- If selected, when could you start on this project?
+I'm able to start in this week once we agreed to work on
+- Can you share 2-3 code samples?
+Sure, I can walk you through the source code of previous projects in github.
+
+- Are you a full time freelancer with availability during the day to hop on status calls?
+I'd be available any time during day or night. except weekends ;)
+
+- Do you have any javascript pages that you have created in the past that you want to share with me?
+ Here, I'm sending JS snippet to parse CSV :
+function CSVToArray( strData, strDelimiter ){
+strDelimiter = (strDelimiter || ",");
+
+var objPattern = new RegExp(
+(
+"(\\" + strDelimiter + "|\\r?\\n|\\r|^)" +
+"(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|" +
+"([^\"\\" + strDelimiter + "\\r\\n]*))"
+),
+"gi"
+);
+
+var arrData = [[]];
+var arrMatches = null;
+
+while (arrMatches = objPattern.exec( strData )){
+
+var strMatchedDelimiter = arrMatches[ 1 ];
+
+if (
+strMatchedDelimiter.length &&
+strMatchedDelimiter !== strDelimiter
+) {
+arrData.push( [] );
+}
+
+var strMatchedValue;
+
+if (arrMatches[ 2 ]){
+
+strMatchedValue = arrMatches[ 2 ].replace(
+new RegExp( "\"\"", "g" ),
+"\""
+);
+
+} else {
+
+strMatchedValue = arrMatches[ 3 ];
+
+}
+
+arrData[ arrData.length - 1 ].push( strMatchedValue );
+}
+
+return( arrData );
+}

@@ -1,0 +1,55 @@
+amchart 4 for network traffic graph
+
+---------------
+
+We are looking for a web developer who knows about amchart4.
+The project need to works with a back-end API which sending the NIC traffic information and draw the NIC tx/rx traffic and its packets graph in near realtime.
+You could check the demo, this is what we expected.
+
+the API return something like this , the API need to be called every 2 seconds:
+
+"timestamp": "2018-08-01T06:15:09.553Z" 
+{
+"interface": "eth0",
+"rx_packets": 104263928,
+"tx_packets": 53316905,
+"rx_bytes": 76133928876,
+"tx_bytes": 41395777402
+},
+{
+"interface": "eth1",
+"rx_packets": 0,
+"tx_packets": 0,
+"rx_bytes": 0,
+"tx_bytes": 0
+},
+
+----------------------------
+
+Perfect ! Please check real-time amCharts I've written to embed in wix page here:
+http://jsfiddle.net/qbw61gh8/191/
+
+Hi, Cheng
+I'm Gabe Nunez, a web developer from US with 5+ years of experience. 
+
+I'm well-versed in amcharts and have proven work history of writing dozens of real-time apps using amcharts.
+I've worked in a project named Corva(www.corva.ai) and we used amcharts to visualize real-time rig data. 
+
+With my experience, I think I'm perfectly fit for this project and my budget is also negotiable since I'm new to upwork.
+I look forward to hearing from you soon.
+
+Best,
+Gabe
+
+--------- QUESTIONS -----------
+- How do you calculate the traffic from the API?
+The api returns timestamp, tx_byte, rx_byte, tx_packet, rx_packet.
+I call the api and accumulate the data I receive in an array and update graph data every each time array is updated.. 
+If array elements count is exceed the time range, I can shift elements to push new one. 
+average, maximum, current... more
+
+- Do you have any questions about the job description?
+Nothing actually. It's too obvious for me.
+
+- Do you have suggestions to make this project run successfully?
+Calling api every 2 seconds sounds a bit too much for me. In my previous project, we introduced web socket for real-time graphs.

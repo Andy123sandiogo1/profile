@@ -1,0 +1,8 @@
+- Tell us about a project where you decided to use ngrx, how did it go?
+	When it comes to use Redux, we need a store sth like ngrx. There're maybe other solutions but mainly Ngrx is a solution for you. mostly recommended
+
+- What is a difference between Ngrx and RxJS?
+	well.. Ngrx implements redux pattern using rxjs observables so it's kinda coupled.
+
+- What is Babel and how it helps with Node.js development?
+	It's js transpiler and isn't really used with node.js.

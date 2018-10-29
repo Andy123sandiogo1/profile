@@ -1,0 +1,13 @@
+Merge React code to the main website.
+---------
+We have a react sign up page, that we need to merge into our main website. The website is currently programmed in angular, JS and HTML. Currently, the main website uses a different react version to the sign-up page. 
+-------------------------
+
+Why do you insist react signup page in angular application ???
+
+I suggest you to write signup page in angular and it's right thing to do for the best practice, better maintenance and performance.
+
+If you agree with me, I can quickly turn around and write signup page in angular!
+
+Best,
+Gabe

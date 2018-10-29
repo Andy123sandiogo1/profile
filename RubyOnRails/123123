@@ -1,0 +1,488 @@
+<style type="text/css">
+    .chart-wrapper {
+        background-color: #fff;
+        padding: 20px 0;
+    }
+
+    .loader {
+        border: 6px solid #f3f3f3; /* Light grey */
+        border-top: 6px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        margin: 200px auto;
+        animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+<div class="chart-wrapper">
+  <div class="resizable">
+    <div id="chart" style='width: 100%; height: 100%;'></div>
+  </div>
+  <div class="resizable">
+    <div id="chart2" style="width: 100%; height: 100%;"></div>
+  </div>
+  <div style="text-align: center; position: relative; font-size: 12px; font-weight: bold; margin-top: 20px;">
+    <span style="color: #DC5356;">Dry:</span> 
+    <input id="dry" type="text" class="guide-value" style="width: 10%; margin-right: 10px; border: 1px solid #DC5356; border-radius: 3px; padding: 2px; color: #DC5356;">
+    <span style="color: #8EC3A7;">Good:</span> 
+    <input id="good" type="text" class="guide-value" style="width: 10%; margin-right: 10px; border: 1px solid #8EC3A7; border-radius: 3px; padding: 2px; color: #8EC3A7;">
+    <span style="color: #5FB7E5;">Wet:</span> 
+    <input id="wet" type="text" class="guide-value" style="width: 10%; border: 1px solid #5FB7E5; border-radius: 3px; padding: 2px; color: #5FB7E5;">
+  </div>
+</div>
+<div class="loader"></div>
+<script>
+    var chartData = [];
+    var minY, maxY;
+    var chartInfo = {
+        dry: 40,
+        good: 10,
+        wet: 20
+    };
+    var chartTitle = 'waterlabs_e5';
+    var refreshInterval = 1000 * 60 * 60 * 3;
+
+    var getJSON = function(url, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.responseType = 'json';
+        xhr.onload = function() {
+          var status = xhr.status;
+          if (status === 200) {
+            callback(null, xhr.response);
+          } else {
+            callback(status, xhr.response);
+          }
+        };
+        xhr.send();
+    };
+
+    var parseRound = function(value) {
+        value = parseFloat(value);
+        return Math.round(value * 100) / 100;
+    };
+
+    var dateToStr = function(date) {
+        return AmCharts.formatDate(new Date(date), "MMM DD L:NN");
+    };
+
+    var getChartData = function () {
+        chartData = [];
+        getJSON('https://fieldclimate.com/pikernel/api/index.php?action=CIDIStationData_GetLast&user_name=nazevedo&user_passw=nazevedo&station_name=00204CCD&profiles_soil_precip_monitor&row_count=600', function(err, data) {
+            if(err || !data || !data['ReturnDataSet']) return;
+            for(var i=0; i<data['ReturnDataSet'].length; i++) {
+                var record = {};
+                record['date'] = data['ReturnDataSet'][i]['f_date'].replace(/-/g, "/");
+                record['4_in_soil_moisture'] = parseRound(data['ReturnDataSet'][i]['sens_aver_12001_19969']);
+                record['8_in_soil_moisture'] = parseRound(data['ReturnDataSet'][i]['sens_aver_12002_19969']);
+                record['12_in_soil_moisture'] = parseRound(data['ReturnDataSet'][i]['sens_aver_12003_19969']);
+                record['20_in_soil_moisture'] = parseRound(data['ReturnDataSet'][i]['sens_aver_12005_19969']);
+                record['16_in_soil_moisture'] = parseRound(data['ReturnDataSet'][i]['sens_aver_12004_19969']);
+                record['24_in_soil_moisture'] = parseRound(data['ReturnDataSet'][i]['sens_aver_12006_19969']);
+                record['36_in_soil_moisture'] = parseRound(data['ReturnDataSet'][i]['sens_aver_12009_19969']);
+                record['48_in_soil_moisture'] = parseRound(data['ReturnDataSet'][i]['sens_aver_12012_19969']);
+                record['soil_moisture'] = parseRound((record['4_in_soil_moisture'] + record['8_in_soil_moisture'] + record['12_in_soil_moisture'] + record['16_in_soil_moisture'] + record['20_in_soil_moisture'] + record['24_in_soil_moisture'])/6);
+                chartData.push(record);
+                
+                minY = minY || record['soil_moisture'];
+                maxY = maxY || record['soil_moisture'];
+                if (minY > record['soil_moisture']) {
+                    minY = record['soil_moisture'];
+                }
+                if (maxY < record['soil_moisture']) {
+                    maxY = record['soil_moisture'];
+                }
+            }
+
+            document.getElementsByClassName("loader")[0].style.display = "none";        
+            document.getElementsByClassName("chart-wrapper")[0].style.display = "block";   
+            updateHeight();   
+
+            chart.allLabels[0].text = dateToStr(chartData[chartData.length - 1]['date']);
+            chart2.allLabels[0].text = dateToStr(chartData[chartData.length - 1]['date']);
+            updateValueAxisGuides();
+            chart.dataProvider = chartData;
+            chart.validateData();
+            chart2.dataProvider = chartData;
+            chart2.validateData();
+        });
+    }
+
+    var chart = AmCharts.makeChart("chart", {
+        "hideCredits": true,
+        "type": "serial",
+        "marginTop": 20,
+        "marginRight": 30,
+        "marginLeft": 30,
+        "marginBottom": 30,
+        "dataProvider": [],
+        "allLabels": [
+            {
+                "text": "",
+                "bold": true,
+                "x": "!30",
+                "y": "0",
+                "align": "right"
+            }
+        ],
+        "valueAxes": [{
+            "axisAlpha": 0,
+            "position": "left",   
+            "minimum": 50,
+            "guides": [{
+                "fillAlpha": 0.6,
+                "lineAlpha": 0,
+                "fillColor": "#DC5356"
+            }, {
+                "fillAlpha": 0.6,
+                "lineAlpha": 0,
+                "fillColor": "#8EC3A7"
+            }, {
+                "fillAlpha": 0.6,
+                "lineAlpha": 0,
+                "fillColor": "#5FB7E5"
+            }]
+        }],
+        "graphs": [{
+            "id":"g1",
+            "title": "Soil Moisture",
+            "bullet": "round",
+            "bulletSize": 0,
+            "bulletAlpha": 0,
+            "lineThickness": 2,
+            "type": "smoothedLine",
+            "lineColor": "#333333",
+            "valueField": "soil_moisture",
+            "stackable": false,
+            "balloonFunction": function (graphDataItem, object) {
+                var date = AmCharts.formatDate(new Date(graphDataItem.category), "MMM DD EEE L:NN A");
+                return date + "<br><b><span style='font-size:14px;'>" + graphDataItem.values.value + "</span></b>";
+            },
+            "balloon": {
+                "enabled": true
+            }
+        }],
+        "chartCursor": {
+            "valueLineEnabled": false,
+            "valueLineBalloonEnabled": false,
+            "categoryBalloonEnabled": false,
+            "zoomable": true,
+        },
+        "categoryField": "date",
+        "categoryAxis": {
+            "parseDates": false,
+            "autoGridCount": true,
+            "minPeriod": "ss",
+            "minorGridAlpha": 0.1,
+            "minorGridEnabled": false,
+            "labelRotation": 90,
+            "labelOffset": 0,
+            "startOnAxis": true,
+            "centerLabelOnFullPeriod": false,
+            "centerRotatedLabels": true,
+            "centerLabels": true,
+            "minHorizontalGap": 20,
+            "labelOffset": 0,
+            "equalSpacing": true,
+            "fontSize": 11,
+            "labelFunction": function(valueText, serialDataItem, categoryAxis) {
+                return AmCharts.formatDate(new Date(serialDataItem.category), "MMM DD EEE L:NN A");
+            }
+        },
+        "export": {
+            "enabled": false
+        },
+        "legend": {
+            "align": "center",
+            "equalWidths": false,
+            "periodValueText": "",
+            "valueAlign": "center",
+            "valueText": "",
+            "markerSize": 10,
+            "markerType": "circle",
+            "autoMargins": false
+        }
+    });
+
+    var chart2 = AmCharts.makeChart("chart2", {
+        "hideCredits": true,
+        "type": "serial",
+        "marginTop": 20,
+        "marginRight": 30,
+        "marginLeft": 30,
+        "marginBottom": 50,
+        "allLabels": [
+            {
+                "text": "",
+                "bold": true,
+                "x": "!30",
+                "y": "0",
+                "align": "right"
+            }
+        ],
+        "dataProvider": [],
+        "valueAxes": [{
+            "axisAlpha": 0,
+            "position": "left"
+        }],
+        "graphs": [{
+            "id":"g1",
+            "title": "4 in soil moisture",
+            "balloonFunction": function (graphDataItem, object) {
+                var date = AmCharts.formatDate(new Date(graphDataItem.category), "MMM DD EEE L:NN A");
+                return date + "<br><b><span style='font-size:14px;'>" + graphDataItem.graph.title + ": " + graphDataItem.values.value + "</span></b>";
+            },
+            "bullet": "round",
+            "bulletSize": 0,
+            "bulletAlpha": 0,
+            "lineThickness": 2,
+            "type": "smoothedLine",
+            "valueField": "4_in_soil_moisture",
+            "lineColor": "#8EC3A7"
+        }, {
+            "id":"g2",
+            "title": "8 in soil moisture",
+            "balloonFunction": function (graphDataItem, object) {
+                var date = AmCharts.formatDate(new Date(graphDataItem.category), "MMM DD EEE L:NN A");
+                return date + "<br><b><span style='font-size:14px;'>" + graphDataItem.graph.title + ": " + graphDataItem.values.value + "</span></b>";
+            },
+            "bullet": "round",
+            "bulletSize": 0,
+            "bulletAlpha": 0,
+            "lineThickness": 2,
+            "type": "smoothedLine",
+            "valueField": "8_in_soil_moisture",
+            "lineColor": "#DC5356"
+        }, {
+            "id":"g3",
+            "title": "12 in soil moisture",
+            "balloonFunction": function (graphDataItem, object) {
+                var date = AmCharts.formatDate(new Date(graphDataItem.category), "MMM DD EEE L:NN A");
+                return date + "<br><b><span style='font-size:14px;'>" + graphDataItem.graph.title + ": " + graphDataItem.values.value + "</span></b>";
+            },
+            "bullet": "round",
+            "bulletSize": 0,
+            "bulletAlpha": 0,
+            "lineThickness": 2,
+            "type": "smoothedLine",
+            "valueField": "12_in_soil_moisture",
+            "lineColor": "#F0CB69"
+        }, {
+            "id":"g4",
+            "title": "16 in soil moisture",
+            "balloonFunction": function (graphDataItem, object) {
+                var date = AmCharts.formatDate(new Date(graphDataItem.category), "MMM DD EEE L:NN A");
+                return date + "<br><b><span style='font-size:14px;'>" + graphDataItem.graph.title + ": " + graphDataItem.values.value + "</span></b>";
+            },
+            "bullet": "round",
+            "bulletSize": 0,
+            "bulletAlpha": 0,
+            "lineThickness": 2,
+            "type": "smoothedLine",
+            "valueField": "16_in_soil_moisture",
+            "lineColor": "#5FB7E5"
+        }, {
+            "id":"g5",
+            "title": "20 in soil moisture",
+            "balloonFunction": function (graphDataItem, object) {
+                var date = AmCharts.formatDate(new Date(graphDataItem.category), "MMM DD EEE L:NN A");
+                return date + "<br><b><span style='font-size:14px;'>" + graphDataItem.graph.title + ": " + graphDataItem.values.value + "</span></b>";
+            },
+            "bullet": "round",
+            "bulletSize": 0,
+            "bulletAlpha": 0,
+            "lineThickness": 2,
+            "type": "smoothedLine",
+            "valueField": "20_in_soil_moisture",
+            "lineColor": "#AB91C5"
+        }, {
+            "id":"g6",
+            "title": "24 in soil moisture",
+            "balloonFunction": function (graphDataItem, object) {
+                var date = AmCharts.formatDate(new Date(graphDataItem.category), "MMM DD EEE L:NN A");
+                return date + "<br><b><span style='font-size:14px;'>" + graphDataItem.graph.title + ": " + graphDataItem.values.value + "</span></b>";
+            },
+            "bullet": "round",
+            "bulletSize": 0,
+            "bulletAlpha": 0,
+            "lineThickness": 2,
+            "type": "smoothedLine",
+            "valueField": "24_in_soil_moisture",
+            "lineColor": "#6D53DC"
+        }, {
+            "id":"g7",
+            "title": "36 in soil moisture",
+            "balloonFunction": function (graphDataItem, object) {
+                var date = AmCharts.formatDate(new Date(graphDataItem.category), "MMM DD EEE L:NN A");
+                return date + "<br><b><span style='font-size:14px;'>" + graphDataItem.graph.title + ": " + graphDataItem.values.value + "</span></b>";
+            },
+            "bullet": "round",
+            "bulletSize": 0,
+            "bulletAlpha": 0,
+            "lineThickness": 2,
+            "type": "smoothedLine",
+            "valueField": "36_in_soil_moisture",
+            "lineColor": "#FD6A37"
+        }, {
+            "id":"g8",
+            "title": "48 in soil moisture",
+            "balloonFunction": function (graphDataItem, object) {
+                var date = AmCharts.formatDate(new Date(graphDataItem.category), "MMM DD EEE L:NN A");
+                return date + "<br><b><span style='font-size:14px;'>" + graphDataItem.graph.title + ": " + graphDataItem.values.value + "</span></b>";
+            },
+            "bullet": "round",
+            "bulletSize": 0,
+            "bulletAlpha": 0,
+            "lineThickness": 2,
+            "type": "smoothedLine",
+            "valueField": "48_in_soil_moisture",
+            "lineColor": "#333333"
+        }],
+        "chartCursor": {
+            "valueLineEnabled": false,
+            "valueLineBalloonEnabled": false,
+            "categoryBalloonEnabled": false,
+            "zoomable": true,
+        },
+        "categoryField": "date",
+        "categoryAxis": {
+            "parseDates": false,
+            "autoGridCount": true,
+            "minPeriod": "ss",
+            "minorGridAlpha": 0.1,
+            "minorGridEnabled": false,
+            "labelRotation": 90,
+            "labelOffset": 0,
+            "startOnAxis": true,
+            "centerLabelOnFullPeriod": false,
+            "centerRotatedLabels": true,
+            "centerLabels": true,
+            "minHorizontalGap": 20,
+            "labelOffset": 0,
+            "equalSpacing": true,
+            "fontSize": 11,
+            "labelFunction": function(valueText, serialDataItem, categoryAxis) {
+                return AmCharts.formatDate(new Date(serialDataItem.category), "MMM DD EEE L:NN A");
+            }
+        },
+        "export": {
+            "enabled": false
+        },
+        "legend": {
+            "align": "center",
+            "equalWidths": false,
+            "periodValueText": "",
+            "valueAlign": "center",
+            "valueText": "",
+            "markerSize": 10,
+            "markerType": "circle",
+            "valueWidth": 100,
+            "autoMargins": false
+        }
+    });
+
+    // responsive
+    window.onresize = function(event) {
+        updateHeight();
+    };
+    (function() {
+        updateHeight();
+    })();
+
+    function responsive1(width) {
+        if (window.innerWidth < 270) {
+            return 120;
+        } else if (window.innerWidth < 500) {
+            return 60;
+        } else {
+            return 0;
+        }
+    }
+
+    function responsive2(width) {
+        if (window.innerWidth < 270) {
+            return 300;
+        } else if (window.innerWidth < 310) {
+            return 270;
+        } else if (window.innerWidth < 500) {
+            return 140;
+        } else {
+            return 0;
+        }
+    }
+
+    function updateHeight()
+    {
+        var div = document.getElementsByClassName("resizable");
+        var width = div[0].offsetWidth;
+        div[0].style.height = Math.min(500, width) + responsive1() + "px";
+        div[1].style.height = Math.min(500, width) + responsive2() + "px";
+    }
+
+    var guideInputs = document.getElementsByClassName("guide-value");
+    for ( var j = 0; j < guideInputs.length; j++ ) {
+        guideInputs[j].addEventListener('input', function(evt) {
+            updateValueAxisGuides();
+        });
+    }
+
+    function updateValueAxisGuides() {
+        var dry = parseInt(document.getElementById('dry').value);
+        var good = parseInt(document.getElementById('good').value);
+        var wet = parseInt(document.getElementById('wet').value);
+        var valueAxis = chart.valueAxes[0];
+
+        valueAxis.guides[0].value = 0;
+        valueAxis.guides[0].toValue = dry;
+        valueAxis.guides[1].value = dry;
+        valueAxis.guides[1].toValue = dry + good;
+        valueAxis.guides[2].value = dry + good;
+        valueAxis.guides[2].toValue = dry + good + wet;
+
+        valueAxis.minimum = Math.min(minY || dry, dry) - 5;
+        valueAxis.maximum = Math.max(maxY || (dry + good), dry + good) + 5;
+        valueAxis.strictMinMax = true;
+
+        chart.validateNow();
+
+        saveLocalStorage({dry: dry, good: good, wet: wet});
+    }
+
+    function saveLocalStorage(obj) {
+        localStorage[chartTitle] = JSON.stringify(obj);
+    }
+
+    function readLocalStorage() {
+        data = JSON.parse(localStorage[chartTitle] || null) || chartInfo;
+
+        document.getElementById('dry').value = data.dry;
+        document.getElementById('good').value = data.good;
+        document.getElementById('wet').value = data.wet;
+    }
+
+    window.onmessage = function(event){
+        if (event.data == 'refresh') {
+            getChartData();
+        }
+    };
+
+    function init() {
+        readLocalStorage();
+        document.getElementsByClassName("chart-wrapper")[0].style.display = 'none';
+        getChartData();
+
+        setInterval( function() {
+          getChartData();
+        }, refreshInterval );
+    }
+
+    init();
+</script>

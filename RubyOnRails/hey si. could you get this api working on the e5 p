@@ -1,0 +1,45 @@
+hey si. could you get this api working on the e5 page?
+
+https://api.fieldclimate.com/v1/data/optimized/00204CCD/daily/last/30d
+mario.hoefler@metos.at that is the email if you need help
+https://api.fieldclimate.com/v1/docs/
+my gmbh account is username: nazevedo password: nazevedo
+
+
+Hey sai could you add a yellow line to the e5 page too. So well have wet- blue good-green yellow-warning red-dry
+
+>>>var CryptoJS = require(‘crypto-js’);
+var fetch = require(‘node-fetch’);
+
+const public_key = “8e0037389c697e256700b56601738ee7cf2de70e”;
+const private_key = “9bb981cba1243576de45e917d892c7106abf2250";
+
+const method = “GET”;
+const baseurl = “https://api.fieldclimate.com/v1”
+const request = “/data/optimized/00204CCD/daily/last/1d”;
+const timestamp = new Date().toUTCString();  //Wed, 09 Aug 2017 20:32:38 GMT
+
+const content_to_sign = method + request + timestamp + public_key;
+const signature = CryptoJS.HmacSHA256(content_to_sign, private_key);
+const hmac_str = ‘hmac ’ + public_key + ‘:’ + signature;
+
+const Url = baseurl + request;
+const parameters = {
+   headers:{
+
+       “Accept”:“application/json”,
+       “Authorization”: hmac_str,
+       “Request-Date”: timestamp
+   },
+   method: method
+};
+
+fetch(Url, parameters)
+   .then(data => { return data.json() })
+   .then(res => { console.log(res) })
+   .catch(error => console.log(error))
+
+Hey sai. Theres the new api. Could you integrate it into the e5 page please
+
+
+https://et.water.ca.gov/api/data?appKey=2298ecc1-317c-4f19-a8d0-948ca1ae719f&targets=250&startDate=2018-03-19&endDate=2018-05-11&dataItems=day-eto

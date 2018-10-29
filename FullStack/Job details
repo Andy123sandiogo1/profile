@@ -1,0 +1,47 @@
+Job details
+-----------
+1) Must be experienced with JavaScript, Angular JS, Bootstrap, Version control note that we are creating rich internet web application.We have a specifications available to review upon request.Nice to have ruby and rail and Go. Take a lead and work with developer.
+
+2) AWS architect admin set up admin part organization, account, policy and access control. 
+
+3) ROUTE 53 : Conect User to S3 bucket (Static Website host)- route53 via/through DNS 
+
+4) STORAGE : Develope complete static website will be in to new S3 bucket (Static Website host).Enable versioning to track deployment or rollback
+
+5) STORAGE : Crete/choose an other S3 bucket (public bucket) this will store all the web data templates,images and icons.
+
+6) STORAGE : Create/choose an other S3 bucket (private bucket) this will store customer/users template, icons and images will be stored.
+
+7) Choose DynamoDB (Meta Data) which will store Account ID's which are associated with Images/Temaplates/Icons.
+
+8) Call Lambda function/ Python, Node JS to accsess users Images/Templates from wesite host S3 bucket (Static Website host) to DynamoDB (User Meta Data Images/tempaltes/Icons stored )
+
+9) COGNINTO : Create unique identities for users, authenticate these identities with identity providers, and save mobile user data in the AWS Cloud.
+
+10) Lambda function call the third party API that will make a payment ( Cahse ) once the payment made. Lambada will update the data base. This person made a purchase. The same Lambda function insert a message to the queue that 
+This is the addresss.Lambda will red the queue and trigger the SNS.
+
+10) SNS : Simple notification Service (Email/SMA/ making call to API /Sending messages SQS etc there 6 ways to notify) to users, Sales and Print Services
+--------------
+Hi, 
+
+I'm a professional full-stack developer with 5+ years of experience.
+Over the last 5 years I have worked in bay-area start-ups with the title of fullstack developer and have a proud portfolio projects built in modern web standards.
+
+You can check my works here:
+www.corva.ai
+www.wantable.com
+www.juniper.net
+
+As an expert in core javascript, various front-end MVC (Angular, React) and back-end frameworks(RoR, PHP, Node.js), I'm sure I'm right candidate for this position. I also have advanced knowledge and experience in AWS like EC2, EB, Lambda, S3, EBS, Dynamodb, RDS, EMR, Kinesis, etc...
+
+I worked for private companies for 5 years before I turned into freelancer so I have good communication skills, team spirit, consistency & never give up. Also, I'm familiar and trained at scrum and agile methodology.
+
+I can work in Central Time Zone and keep you updated with my progress everyday once you allow me to work on this.
+
+Could I possibly meet you and discuss the project more in detail?
+
+I'd appreciate if you could afford some time for me.
+
+Best,
+Gabe
