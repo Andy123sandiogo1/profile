@@ -1,43 +1,587 @@
-charting kaiser
--my source will be easy in integration.
-when you start integration?
- I will ask sanji to start it as soon as possible
- if she busy now, she will do it next Monday?
+Gabe [7:42 PM]
+Hi @kaiser
 
- -ok. anyway I will help her for integration.
- -thx
- -BTW, can i ask about my payment?
- -one of job I hope to do is starting using angular.
+kaiser [9:23 PM]
+Hi
 
-- I have rich of experience about angualr.typescript, es6/7
-- ok
-- that's good news
-	Gabriel Nunez
-	right?
+Gabe [9:56 PM]
+When do you think api's available ?
 
-- sure.
-- the email is right?
-- plz wait a moment, I will check , plz give me 30min. my friend visited me.
-- ok, just leave me message, see i, see u.
+kaiser [9:58 PM]
+maybe need another 2 days
+we have national holiday
+so we just back to office today
+
+Gabe [9:59 PM]
+I see
+Our development is getting slowly as it goes
+
+kaiser [9:59 PM]
+y
+I am sorry for this, hope I can put more time on this project this week
+have u test the IP filter ?
+
+Gabe [10:00 PM]
+not yet
+I can't access to the test server.
+
+kaiser [10:01 PM]
+oh?
+Let me check it.
+ssh ?
+I will verify this later.
+
+Gabe [10:01 PM]
+yes, ssh
+
+kaiser [10:02 PM]
 ok
-- hi, Kaiser
-Email is correct.
-- Hi Kaiser how are you?
-- Do you receive the payment?
-- Oh, I didn't check yet.
+I have the test the IP filter, it works
+we will start to study Angular this week.
+Hope we could use it in a month.
+I need to lunch now. See u.
 
--Hi Kaiser, How are you?
- If you are online, please ping me.
- I am going to explain about range error message.
-- I see
-- If user select too small range(i,e user selected less range than 1s), it can't be displayed graph.
-- y
-- so, at that time, I have displayed error message
-- I used to select a range (from the graphy, maybe 10 or more sec), but no slow
-	maybe at that range, there is no data point in DB.
-Oh... I have updated recently.
+Gabe [10:03 PM]
+see u later
+
+kaiser [8:03 PM]
+the server has back! someone shutdown it
+sorry for it.
+
+Gabe [9:10 PM]
+Hi kaiser
+
+kaiser [9:10 PM]
+hi
+long time no see
+anything ok?
+
+Gabe [9:10 PM]
+yeah,, just looking for some jobs here.
+
+kaiser [9:11 PM]
+yes, I am back to office now. I will notice u soon.
+
+Gabe [9:11 PM]
+I saw that there're many other devs here in slack
+did you bring your local devs here ?
+
+kaiser [9:12 PM]
+too busy last month, and my brain is in bad condition
+
+Gabe [9:12 PM]
+no worries.
+
+kaiser [9:12 PM]
+yes, we start to use slack in my team from this week
+
+Gabe [9:13 PM]
+that is good.
+I wanna cowork with backend team to get the api done for the filter integration.
+
+kaiser [9:13 PM]
+yes
+after that, we will review high priority jobs
+and pick one to start
+
+Gabe [9:14 PM]
+sounds good to me.
+You can create jira or pivotal tracker for task management.
+
+kaiser [9:14 PM]
+let me go lunch first
+ok
+
+Gabe [9:31 PM]
+I have deployed filter update to server
+
+kaiser [10:04 PM]
+ok
+I will check later
+
+Gabe [11:58 AM]
+Hi @kaiser
+How's it going ?
+
+kaiser [12:08 AM]
+my god, its mid-night
+We will discuss the schedule for filter feature
+next week, we are out for company trip. so we will be back in mid of Oct.
+
+Gabe [12:10 AM]
+ok
+so there's no work to do until then ?
+
+kaiser [12:10 AM]
+that would be the  worst case
+I hope we could done some filters before we out of town
+
+Gabe [12:13 AM]
+ok..
+are you going to pay after filters completed ?
+I was waiting for filter apis to be done but initially, ip filter works.
+
+kaiser [12:16 AM]
+ok
+
+Gabe [12:16 AM]
+Also, I'd like to know how you wanna proceed this project in the future.
+
+kaiser [12:16 AM]
+I can pay you first
+
+Gabe [12:16 AM]
+No worries.
+
+kaiser [12:17 AM]
+I will discuss with sanji who develop filter API
+
+Gabe [12:17 AM]
+I just hope we keep pace..
+
+kaiser [12:17 AM]
+in 10 mins
+
+Gabe [12:17 AM]
+Ok, thanks.
+
+kaiser [12:17 AM]
+I have add her to the channel
+
+Gabe [12:17 AM]
+Is there any chance that my contract can develop into salary based like ongoing work ?
+
+kaiser [12:17 AM]
+so you could talk to here directly.
+
+kaiser [12:21 AM]
+I will think about the way for salary based for ongoing work
+
+Gabe [12:22 AM]
+Thanks.
+I don't push hard for it but it'd be really good for me.
+I like working with you and look forward sth substantial .
+
+Gabe [8:34 AM]
+Hi @kaiser
+I wanna get paid after trip so no rushes.
+
+kaiser [8:42 AM]
+ok, anyway, I just hope you feel safe
+and one week time is not big difference
+
+Gabe [8:44 AM]
+yeah. no worries.
+thanks
+
+Gabe [2:55 AM]
+Hi @kaiser
+I am back.
+
+kaiser [8:55 AM]
+Hi, I will return to Taiwan on Sunday
+
+Gabe [9:08 AM]
+Ok
+
+Gabe [4:10 AM]
+HI Kaiser.
+How are you?
+
+kaiser [4:49 AM]
+Fine, just back from Japan
+Today is first day in office
+
+Gabe [4:50 AM]
+How did you spend a vacation? (edited)
+
+kaiser [4:51 AM]
+Very busy today
+
+Gabe [9:24 PM]
+hi
+i want to discuss about next task.
+
+kaiser [12:41 AM]
+Ok, I just finish a trouble job. Now I could start to plan it.
+
+Gabe [8:13 AM]
+Hi Kaiser
+How are you today?
+
+kaiser [8:36 AM]
+hi
+the presentation is done… an important one
+
+Gabe [8:37 AM]
+I've fixed some issue, and updated in your server.
+
+kaiser [8:37 AM]
+everyday in Japan still worry about it
+thx
+I will ask sanji to put your code into our system
+please help her if she need your help
+then I have to think next project for u
+
+Gabe [8:38 AM]
+of course
+
+kaiser [8:39 AM]
+If Sanji could put your code into our system, then we will put some resource to make the dashboard, ie ,amchart project better.
+
+Gabe [8:39 AM]
+no problem
+
+kaiser [8:40 AM]
+for example, we only support some operator, like is, we will add “between”, “not” … something like that
+hoiw about you recently
+
+Gabe [8:41 AM]
+do you mean operator adding in next project?
+i am good.
+
+kaiser [8:44 AM]
+Yes, I hope we should start to integrate task
+if something big meet, we have to fix it first, before we invest more time on it.
+
+Gabe [8:45 AM]
+my source code will be easy in integration.
+when you start integration?
+
+kaiser [8:46 AM]
+I will ask sanji to start it as soon as possible
+if she busy now, she will do it next Mondayl
+
+Gabe [8:47 AM]
+ok
+anyway i will help her for integration.
+
+kaiser [8:48 AM]
+thx
+
+Gabe [8:48 AM]
+BTW, can i ask about my payment?
+
+kaiser [8:49 AM]
+one of job I hope to do is starting using angular
+oh…sorry, I forget
+wait a min
+
+Gabe [8:49 AM]
+i have rich experience about angular.
+typescript, es6/7, ...
+
+kaiser [8:50 AM]
+ok
+
+Gabe [8:50 AM]
+anyway i have rich experience in web browser engine.
+
+kaiser [8:50 AM]
+ok, good
+
+Gabe [8:50 AM]
+so i know about web field very well.
+
+kaiser [8:51 AM]
+do I pay u paypal before?
+
+Gabe [8:51 AM]
+about angular, not problem
+
+kaiser [8:51 AM]
+that’s a good news
+Gabriel Nunez
+dotpeenge@gmail.com
+right?
+have u experience about webRTC before?
+
+Gabe [8:53 AM]
+sure
+
+kaiser [8:53 AM]
+the email is right?
+
+Gabe [8:55 AM]
+plz wait a moment. i will check, plz give me 30 min. my friend visited me.
+i am sorry.
+
+kaiser [8:55 AM]
+ok
+just leave me message
+see i
+see u
+
+Gabe [8:55 AM]
+ok
+
+Gabe [9:54 AM]
+Hi Kaiser
+Email is correct (edited)
+
+Gabe [8:03 PM]
+Hi Kaiser
+How are you ?
+
+kaiser [8:21 PM]
+do u receive the payment?
+
+Gabe [8:38 PM]
+oh, I didn't check yet.
+
+Gabe [8:56 AM]
+Hi Kaiser, How are you?
+If you are online, please ping me.
+I am going to explain about range error message.
+
+kaiser [8:57 AM]
+I see
+
+Gabe [8:59 AM]
+If user select too small range(i.e user selected less range than 1s), it can't be displayed graph.
+
+kaiser [8:59 AM]
+y
+
+Gabe [9:00 AM]
+so, at that time, i have displayed error message
+
+kaiser [9:00 AM]
+I used to select a range (from the graph , maybe 10 or more sec), but no show
+maybe at that range , there is no data point in DB?
+
+Gabe [9:01 AM]
+Oh.. I have updated recently.
 I have updated it and uploaded in your server.
 so you can test it.
--Hi,
+Hi
 
+kaiser [9:03 AM]
+ok
+thx
+sorry I am too busy recenbtlt
+recently
 
+Gabe [9:03 AM]
+If API data does not exist, It will not display and show error message.
+
+kaiser [9:03 AM]
+ok
+
+Gabe [9:03 AM]
+"Data is not exist"
+
+kaiser [9:03 AM]
+or there is another way to do
+we just skip this selection, return to pervious range
+because there is no more data
+so user can not deep-in
+
+Gabe [9:09 AM]
+Hi
+after user select chart range, do you want to make the function which return to first staging?
+
+kaiser [9:10 AM]
+I think this is an option, because user could select the range again from the top-right botton
+
+Gabe [9:16 AM]
+Ok. i will update the function as soon
+
+Gabe [8:53 AM]
+Hi
+How are you?
+I am gonna update  new issue in this sunday.
+
+kaiser [8:56 AM]
+hi,
+oh, great!
+Sanji has started to move the code.
+
+Gabe [8:57 AM]
+great sounds.
+If some issue, I will help willing her.
+
+Gabe [8:46 AM]
+Hi Kaiser
+How are you?
+
+kaiser [5:10 AM]
+Dinner now
+Sanji report me she could integrate ur code
+That’s a good news
+
+Gabe [5:11 AM]
+Thanks, have a good dinner.
+
+Gabe [8:56 AM]
+Hi Kaiser
+
+Gabe [8:29 AM]
+Hi Kaiser.
+i want to discuss about my next task.
+
+kaiser [4:20 PM]
+Ok
+
+Gabe [5:12 PM]
+Hi Kaiser
+How are you doing ?
+I want to discuss about my next task.
+
+kaiser [5:13 PM]
+Hi
+
+Gabe [5:13 PM]
+Hi
+
+kaiser [5:15 PM]
+I will let sanji do more jobs with u. I will busy in near future, I need sanji to help me for following tasks
+the amchart dashboard maybe 70% done, some detail need to be address out. Most of them are UI relative and mirror feature.
+
+kaiser [5:23 PM]
+after this module, we have to find a way to make our system with new flat design
+
+Gabe [1:03 AM]
+Hi kaiser.
+How are you doing?
+:grin:
+
+kaiser [1:04 AM]
+Cafe
+
+kaiser [1:10 AM]
+Image from iOS 
+
+Gabe [1:11 AM]
+Have good time.
+If you have your free time, please ping me.
+:slightly_smiling_face:
+
+kaiser [1:12 AM]
+Ok
+Don’t u sleep?
+I’m ok, only typing slow on phone
+
+Gabe [1:19 AM]
+I got up because I wasn't sleepy.
+I will go back to sleep.
+bye.
+
+Gabe [5:12 AM]
+Hi, kaiser
+Do you enjoy your dinner?
+
+kaiser [5:15 AM]
+just done
+
+Gabe [5:15 AM]
+Really sorry.
+
+kaiser [5:15 AM]
+it’s ok
+
+Gabe [5:15 AM]
+My mother was in a car accident,
+
+kaiser [5:15 AM]
+it should be very early morning, right?
+
+Gabe [5:15 AM]
+so I think I should go to Los Angels.
+
+kaiser [5:15 AM]
+ha
+I am sorry to hear that
+
+Gabe [5:16 AM]
+Really sorry,
+
+kaiser [5:16 AM]
+LA downtown?
+
+Gabe [5:16 AM]
+yes,
+perhaps, today.
+
+kaiser [5:17 AM]
+I see
+do you need any support?
+
+Gabe [5:19 AM]
+I don't need it.
+I'm just sorry about the work.
+
+kaiser [5:19 AM]
+don;t say that
+my team is slow too
+not your problem
+we have too many tasks recently
+
+Gabe [5:21 AM]
+I understand.
+
+kaiser [5:21 AM]
+How do you get there?
+
+Gabe [5:21 AM]
+I'm not sure how long it takes
+
+kaiser [5:21 AM]
+to LA?
+
+Gabe [5:22 AM]
+I'll have to fly there but you know I have to take care of them.
+Can I return back at any time if I can ?
+
+kaiser [5:22 AM]
+you are always welcome
+
+Gabe [5:22 AM]
+thanks.
+
+kaiser [5:22 AM]
+why don’t u take your laptop with you?
+maybe you could do something too
+
+Gabe [5:23 AM]
+I'd be online time to time but I don't think I can work for a while.
+
+kaiser [5:23 AM]
+I see
+
+Gabe [5:23 AM]
+I just can't focus on my work
+
+kaiser [5:24 AM]
+I see
+hope everything would be be on track
+
+Gabe [5:24 AM]
+I hope so
+
+kaiser [5:25 AM]
+if you need any help, just let me know, let me think what could I do for u
+
+Gabe [5:25 AM]
+thanks for your words.
+you always supported me so far.
+It's just a pleasure for me to meet you
+I always appreciate it.
+
+kaiser [5:26 AM]
+you are welcome
+Hope your mother could recover soon.
+
+Gabe [5:27 AM]
+yeah..
+thanks.
+I'll have to get prepared and leave in next couple of hours.
+I'll keep in touch with you
+
+kaiser [5:28 AM]
+ok
+take care
+
+Gabe [5:28 AM]
+thanks.
+Bye for now
